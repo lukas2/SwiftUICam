@@ -222,6 +222,8 @@ public class CameraViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        previewView.frame = view.frame
         
         sessionQueue.async {
             switch self.setupResult {
