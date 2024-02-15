@@ -139,6 +139,9 @@ public class CameraViewController: UIViewController {
 
     /// keep track of recording in progress
     public var inProgress: Bool = false
+
+    /// prevent issue with camera flipping
+    public var isCameraFlipping: Bool = false
  
     private enum SessionSetupResult {
         case success
@@ -529,6 +532,8 @@ public class CameraViewController: UIViewController {
             DispatchQueue.main.async {
                 self.delegate?.didRotateCamera()
             }
+
+          isCameraFlipping = false
         }
     }
     
