@@ -461,7 +461,6 @@ public class CameraViewController: UIViewController {
             }
             
             self.photoOutput?.capturePhoto(with: photoSettings, delegate: self)
-            self.isPhotoBeingTaken = false
         }
     }
     
@@ -604,6 +603,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
                 self.view.layer.opacity = 1
             }
             self.delegate?.didCapturePhoto()
+           self.isPhotoBeingTaken = false
         }
     }
     
