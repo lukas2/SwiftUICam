@@ -59,6 +59,7 @@ public struct CameraView: UIViewControllerRepresentable {
     
     public func updateUIViewController(_ cameraViewController: CameraViewController, context: Context) {
         if events.didAskToCapturePhoto {
+            cameraViewController.isPhotoBeingTaken = true
             cameraViewController.takePhoto()
         }
         
