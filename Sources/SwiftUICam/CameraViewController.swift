@@ -167,6 +167,15 @@ public class CameraViewController: UIViewController {
         previewView.videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
         previewView.frame = view.frame
         view.addSubview(previewView)
+
+     previewView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            previewView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            previewView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            previewView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            previewView.topAnchor.constraint(equalTo: view.topAnchor),
+        ])
         
         // Add Gesture Recognizers
         addGestureRecognizers()
@@ -223,7 +232,7 @@ public class CameraViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        previewView.frame = view.frame
+        //previewView.frame = view.frame
         
         sessionQueue.async {
             switch self.setupResult {
