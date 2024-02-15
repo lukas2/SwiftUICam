@@ -142,6 +142,9 @@ public class CameraViewController: UIViewController {
 
     /// prevent issue with camera flipping
     public var isCameraFlipping: Bool = false
+
+    /// prevent double photo taking
+    public var isPhotoBeingTaken: Bool = false
  
     private enum SessionSetupResult {
         case success
@@ -458,6 +461,7 @@ public class CameraViewController: UIViewController {
             }
             
             self.photoOutput?.capturePhoto(with: photoSettings, delegate: self)
+            self.isPhotoBeingTaken = false
         }
     }
     
