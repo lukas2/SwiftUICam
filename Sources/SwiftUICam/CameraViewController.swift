@@ -136,7 +136,10 @@ public class CameraViewController: UIViewController {
     
     /// Video Device variable
     private var videoDevice: AVCaptureDevice?
-    
+
+    /// keep track of recording in progress
+    public var inProgress: Bool = false
+ 
     private enum SessionSetupResult {
         case success
         case notAuthorized
