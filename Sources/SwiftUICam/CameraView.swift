@@ -71,7 +71,7 @@ public struct CameraView: UIViewControllerRepresentable {
             cameraViewController.changeFlashMode()
         }
 
-        if (events.didAskToRecordVideo && !cameraViewController.inProgress) || (events.didAskToStopRecording cameraViewController && cameraViewController.inProgress) {
+        if (events.didAskToRecordVideo && !cameraViewController.inProgress) || (events.didAskToStopRecording.cameraViewController && cameraViewController.inProgress) {
             cameraViewController.inProgress.toggle()
             cameraViewController.toggleMovieRecording()
         }
