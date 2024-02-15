@@ -533,7 +533,7 @@ public class CameraViewController: UIViewController {
                 self.delegate?.didRotateCamera()
             }
 
-          isCameraFlipping = false
+          self.isCameraFlipping = false
         }
     }
     
