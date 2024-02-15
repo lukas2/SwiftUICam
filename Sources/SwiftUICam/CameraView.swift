@@ -62,15 +62,17 @@ public struct CameraView: UIViewControllerRepresentable {
             cameraViewController.takePhoto()
         }
         
-        if events.didAskToRotateCamera {
+        if events.didAskToRotateCamera && !cameraViewController.isCameraFlipping {
+            cameraViewController.isCameraFlipping = true
             cameraViewController.rotateCamera()
         }
         
         if events.didAskToChangeFlashMode {
             cameraViewController.changeFlashMode()
         }
-        
-        if events.didAskToRecordVideo || events.didAskToStopRecording {
+
+        if (events.didAskToRecordVideo && !cameraViewController.inProgress) || (events.didAskToStopRecording cameraViewController && cameraViewController.inProgress) {
+            cameraViewController.inProgress.toggle()
             cameraViewController.toggleMovieRecording()
         }
     }
